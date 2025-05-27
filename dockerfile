@@ -21,14 +21,19 @@ RUN cd project-threat-modeling && yarn run build
 
 # ---------------------------------------------------
 
-# Stage 2: Use a lightweight nginx server to serve the built React app
-FROM nginx:alpine
+# Stage 2: Serve the build using `serve`
+FROM node:20-alpine
 
-# Copy the static build files from the builder stage to nginx's default directory
-COPY --from=builder /app/project-threat-modeling/build /usr/share/nginx/html
+# Install a simple static server globally
+RUN yarn global add serve
 
-# Expose port 80 to serve the app
-EXPOSE 80
+WORKDIR /app
 
-# Start nginx in the foreground
-CMD ["nginx", "-g", "daemon off;"]
+# Copy built React app from the builder stage
+COPY --from=builder /app/project-threat-modeling/build ./build
+
+# Expose port 3000 (or any other you want)
+EXPOSE 3000
+
+# Serve the app
+CMD ["serve", "-s", "build", "-l", "3000"]
