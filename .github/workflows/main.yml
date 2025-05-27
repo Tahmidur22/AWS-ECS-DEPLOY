@@ -26,13 +26,13 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t threat-app .
+        docker build -t ptm-ecr-repo .
 
     - name: Tag Docker image for ECR
       run: |
-        docker tag threat-app:latest ${{ steps.login-ecr.outputs.registry }}/threat-app:latest
+        docker tag ptm-ecr-repo:latest ${{ steps.login-ecr.outputs.registry }}/ptm-ecr-repo:latest
 
     - name: Push Docker image to ECR
       run: |
-        docker push ${{ steps.login-ecr.outputs.registry }}/threat-app:latest
+        docker push ${{ steps.login-ecr.outputs.registry }}/ptm-ecr-repo:latest
 
