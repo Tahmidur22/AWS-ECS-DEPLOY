@@ -17,3 +17,12 @@ variable "availability_zones" {
 variable "location" {
   type = string
 }
+variable "ecr_repo_name" {
+  type        = string
+  description = "ECR repository name"
+}
+
+variable "environment" {
+  type        = string
+  description = "Environment name (dev, prod, etc)"
+}
