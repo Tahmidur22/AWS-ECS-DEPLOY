@@ -15,3 +15,7 @@ variable "availability_zones" {
   type        = list(string)
   description = "The availability zones for the subnets"
 }
+variable "ecs_sg_name" {
+  type        = string
+  description = "The name of the security group"
+}

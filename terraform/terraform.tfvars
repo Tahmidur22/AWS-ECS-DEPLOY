@@ -10,3 +10,7 @@ availability_zones          = ["us-east-1a", "us-east-1b"]
 # ECR Repository
 ecr_repo_name               = "ptm-ecr-repo"
 environment                 = "dev"
+
+# ECS Cluster & Service
+ecs_cluster_name           = "ptm-ecs-cluster"
+ecs_service_name           = "ptm-ecs-service"

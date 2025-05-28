@@ -3,7 +3,7 @@ output "vpc_id" {
   value       = aws_vpc.vpc.id
 }
 
-output "public_subnet_id" {
+output "public_subnet_ids" {
   description = "The IDs of the public subnets"
   value       = aws_subnet.public[*].id
 }
@@ -11,4 +11,8 @@ output "public_subnet_id" {
 output "internet_gateway_id" {
   description = "The ID of the internet gateway"
   value       = aws_internet_gateway.igw.id
+}
+output "ecs_sg_id" {
+  description = "The id of container security group"
+  value       = aws_security_group.ecs_sg.id
 }

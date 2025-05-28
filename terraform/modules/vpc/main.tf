@@ -32,5 +32,30 @@ resource "aws_route_table" "rt" {
     Name = "${var.vpc_name}-rt"
   }
 }
+resource "aws_route_table_association" "public_association" {
+  count          = length(aws_subnet.public)
+  subnet_id      = aws_subnet.public[count.index].id
+  route_table_id = aws_route_table.rt.id
+}
+
+resource "aws_security_group" "ecs_sg" {
+  vpc_id = aws_vpc.vpc.id
+  name   = "${var.vpc_name}-sg"
+
+  ingress {
+    from_port   = 3000
+    to_port     = 3000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow traffic to app on port 3000"
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
 
 
