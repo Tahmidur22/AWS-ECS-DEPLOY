@@ -33,3 +33,31 @@ variable "ecs_cluster_name" {
 variable "ecs_service_name" {
   type    = string
 }
+variable "listener_port" {
+  type    = number
+  default = 80
+}
+
+variable "target_port" {
+  type    = number
+  default = 3000
+}
+
+variable "health_check_path" {
+  type    = string
+  default = "/"
+}
+variable "dns_hosted_zone" {
+  type        = string
+  description = "The name of the DNS"
+}
+variable "dns_name" {
+  type        = string
+  description = "The name of the DNS"
+}
+variable "dns_record_ttl" {
+  description = "TTL for DNS validation record"
+  type        = number
+  default     = 300
+}
+

@@ -22,3 +22,12 @@ variable "ecs_sg_id" {
   type        = string
   description = "The id of container security group"
 }
+variable "target_group_arn" {
+  type        = string
+  description = "The ARN of the target group"
+  
+}
+variable "container_port" {
+  type        = number
+  description = "The port on which the container listens"
+}

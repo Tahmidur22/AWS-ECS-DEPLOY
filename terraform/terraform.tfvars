@@ -14,3 +14,8 @@ environment                 = "dev"
 # ECS Cluster & Service
 ecs_cluster_name           = "ptm-ecs-cluster"
 ecs_service_name           = "ptm-ecs-service"
+
+# ACM
+dns_name = "app.ptm-app.com"
+dns_hosted_zone = "ptm-app.com"
+

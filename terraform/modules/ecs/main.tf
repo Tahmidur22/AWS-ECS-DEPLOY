@@ -58,6 +58,11 @@ resource "aws_ecs_service" "ecs_service" {
     security_groups  = [var.ecs_sg_id]
     assign_public_ip = true
   }
+  load_balancer {
+  target_group_arn = var.target_group_arn
+  container_name   = var.ecs_cluster_name
+  container_port   = var.container_port
+  }
 
   depends_on = [
     aws_ecs_task_definition.ecs_td,
