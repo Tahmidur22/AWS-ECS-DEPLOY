@@ -21,7 +21,7 @@ This project demonstrates deploying a Node.js application using modern infrastru
 | **Amazon ECS (Elastic Container Service)** | Orchestrates containerized application deployment on AWS infrastructure.                        |
 | **Application Load Balancer (ALB)**        | Distributes incoming traffic across ECS services and handles SSL termination and routing.       |
 | **Terraform**                              | Manages infrastructure as code (IaC), provisioning AWS resources like ECS, ALB, VPC, etc.       |
-| **GitHub Actions CI/CD**                   | Automates build, test, Docker image push to ECR, and infrastructure deployment with Terraform.  |
+| **GitHub Actions CI/CD**                   | Automates build and push Docker image push to ECR                                               |
 | **Docker**                                 | Builds container images for deployment; defined via a `Dockerfile` in the project root.         |
 | **AWS Certificate Manager (ACM)**          | Manages and provisions certificates for secure communication over HTTPS.                |
 | **Amazon Route 53**                        | Provides DNS routing for the deployed application, integrating with ALB and ACM.                |
